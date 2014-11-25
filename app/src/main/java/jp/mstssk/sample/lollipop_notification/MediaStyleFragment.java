@@ -37,28 +37,38 @@ public class MediaStyleFragment extends Fragment {
         return rootView;
     }
 
-    @OnClick(R.id.button_show_media_style)
-    void showMediaStyleNotification() {
+    @OnClick(R.id.button_show_media_style_3_action)
+    void showMediaStyleWith3Actions() {
+        showMediaStyleNotification(false);
+    }
+
+    @OnClick(R.id.button_show_media_style_5_action)
+    void showMediaStyleWith5Actions() {
+        showMediaStyleNotification(true);
+    }
+
+    private void showMediaStyleNotification(boolean fiveButtons) {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
             String msg = "Android 5.0 Lollipopより前のバージョンではMediaStyleは使えません。";
             Toast.makeText(getActivity(), msg, Toast.LENGTH_SHORT).show();
         } else {
-            notificationManager.notify(0, createMediaStyleNotification());
+            notificationManager.notify(0, createMediaStyleNotification(fiveButtons));
         }
     }
 
     /**
      * for Lollipop.
      *
+     * @param fiveButtons 5つボタンを表示するかどうか
      * @return MediaStyle notification.
      */
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-    private Notification createMediaStyleNotification() {
+    private Notification createMediaStyleNotification(boolean fiveButtons) {
         // 本来はMediaSessionを使いメディア再生をコントロールするが、サンプルなので割愛
         // MediaSession dummyMediaSession = new MediaSession(getActivity(), "dummyTag");
         Notification.MediaStyle mediaStyle = new Notification.MediaStyle()
                 // .setMediaSession(dummyMediaSession.getSessionToken())
-                .setShowActionsInCompactView(0, 2, 4);
+                .setShowActionsInCompactView(0, 1, 2);
 
         // 前へ,一時停止,次へ、などのActionを設定する。サンプルなのでPendingIntentは割愛
         Notification.Builder builder = new Notification.Builder(getActivity())
@@ -70,11 +80,13 @@ public class MediaStyleFragment extends Fragment {
                 .setVisibility(Notification.VISIBILITY_PUBLIC)
                 .setShowWhen(false)
                 .addAction(android.R.drawable.ic_media_previous, "Previous", null)
-                .addAction(android.R.drawable.ic_media_rew, "Rewind", null)
                 .addAction(android.R.drawable.ic_media_pause, "Pause", null)
-                .addAction(android.R.drawable.ic_media_ff, "Fast Forward", null)
                 .addAction(android.R.drawable.ic_media_next, "Next", null)
                 .setStyle(mediaStyle);
+        if (fiveButtons) {
+            builder.addAction(android.R.drawable.ic_media_rew, "Rewind", null)
+                    .addAction(android.R.drawable.ic_media_ff, "Fast Forward", null);
+        }
 
         // ジャケット画像などはLargeIconで
         try {

@@ -15,10 +15,16 @@
         android:paddingTop="@dimen/activity_vertical_margin">
 
         <Button
-            android:id="@+id/button_show_media_style"
+            android:id="@+id/button_show_media_style_3_action"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Show MediaStyle Notification"/>
+            android:text="Show MediaStyle Notification\n3 action buttons"/>
+
+        <Button
+            android:id="@+id/button_show_media_style_5_action"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Show MediaStyle Notification\n5 action buttons"/>
 
         <Button
             android:id="@+id/button_hide_media_style"
