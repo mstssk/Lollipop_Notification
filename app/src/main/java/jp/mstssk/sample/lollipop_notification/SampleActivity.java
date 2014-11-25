@@ -17,8 +17,10 @@ public class SampleActivity extends Activity {
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
         ActionBar.Tab tab1 = actionBar.newTab().setText("Material Design").setTabListener(new FragmentTabListener(MaterialDesignFragment.newInstance()));
         ActionBar.Tab tab2 = actionBar.newTab().setText("Lock Screen").setTabListener(new FragmentTabListener(LockScreenFragment.newInstance()));
+        ActionBar.Tab tab4 = actionBar.newTab().setText("Media Style").setTabListener(new FragmentTabListener(MediaStyleFragment.newInstance()));
         actionBar.addTab(tab1);
         actionBar.addTab(tab2);
+        actionBar.addTab(tab4);
     }
 
 
