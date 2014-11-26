@@ -4,10 +4,13 @@ import android.app.ActionBar;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
+import android.app.Notification;
 import android.os.Bundle;
+import android.widget.Toast;
 
 
 public class SampleActivity extends Activity {
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +28,15 @@ public class SampleActivity extends Activity {
         actionBar.addTab(tab4);
     }
 
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        if (getIntent().getCategories().contains(Notification.INTENT_CATEGORY_NOTIFICATION_PREFERENCES)) {
+            Toast.makeText(this, "Starts from the notification gear icon.", Toast.LENGTH_SHORT).show();
+        }
+    }
 
     private static class FragmentTabListener implements ActionBar.TabListener {
         public Fragment fragment;
