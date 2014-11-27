@@ -14,7 +14,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Spinner;
 
@@ -33,14 +32,8 @@ public class MaterialDesignFragment extends Fragment {
     @InjectView(R.id.spiner_color)
     Spinner colorSpiner;
 
-    @InjectView(R.id.button_choose_img)
-    Button chooseImg;
-
     @InjectView(R.id.image_preview)
     ImageView preview;
-
-    @InjectView(R.id.button_show_notification)
-    Button showNotification;
 
     private Uri mImageUri;
     private int mNotifyId = 0;

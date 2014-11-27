@@ -11,18 +11,13 @@ import android.support.v4.app.NotificationManagerCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 
 import butterknife.ButterKnife;
-import butterknife.InjectView;
 import butterknife.OnClick;
 
 public class LockScreenFragment extends Fragment {
 
     NotificationManagerCompat notificationManager;
-
-    @InjectView(R.id.button_open_setting)
-    Button openSetting;
 
     public static LockScreenFragment newInstance() {
         LockScreenFragment fragment = new LockScreenFragment();
