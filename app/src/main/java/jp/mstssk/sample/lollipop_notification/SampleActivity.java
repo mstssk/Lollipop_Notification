@@ -8,6 +8,9 @@ import android.app.Notification;
 import android.os.Bundle;
 import android.widget.Toast;
 
+import java.util.LinkedHashMap;
+import java.util.Map;
+
 
 public class SampleActivity extends Activity {
 
@@ -16,16 +19,17 @@ public class SampleActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my);
+
         ActionBar actionBar = getActionBar();
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
-        ActionBar.Tab tab1 = actionBar.newTab().setText("Material Design").setTabListener(new FragmentTabListener(MaterialDesignFragment.newInstance()));
-        ActionBar.Tab tab2 = actionBar.newTab().setText("Lock Screen").setTabListener(new FragmentTabListener(LockScreenFragment.newInstance()));
-        ActionBar.Tab tab3 = actionBar.newTab().setText("Heads-up").setTabListener(new FragmentTabListener(HeadsUpFragment.newInstance()));
-        ActionBar.Tab tab4 = actionBar.newTab().setText("Media Style").setTabListener(new FragmentTabListener(MediaStyleFragment.newInstance()));
-        actionBar.addTab(tab1);
-        actionBar.addTab(tab2);
-        actionBar.addTab(tab3);
-        actionBar.addTab(tab4);
+        Map<String, Fragment> fragments = new LinkedHashMap<String, Fragment>();
+        fragments.put("Material Design", MaterialDesignFragment.newInstance());
+        fragments.put("Lock Screen", LockScreenFragment.newInstance());
+        fragments.put("Heads-up", HeadsUpFragment.newInstance());
+        fragments.put("Media Style", MediaStyleFragment.newInstance());
+        for (Map.Entry<String, Fragment> entry : fragments.entrySet()) {
+            actionBar.addTab(actionBar.newTab().setText(entry.getKey()).setTabListener(new FragmentTabListener(entry.getValue())));
+        }
     }
 
 
