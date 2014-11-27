@@ -25,6 +25,7 @@ public class SampleActivity extends Activity {
         Map<String, Fragment> fragments = new LinkedHashMap<String, Fragment>();
         fragments.put("Material Design", MaterialDesignFragment.newInstance());
         fragments.put("Lock Screen", LockScreenFragment.newInstance());
+        fragments.put("Priority Mode", PriorityModeFragment.newInstance());
         fragments.put("Heads-up", HeadsUpFragment.newInstance());
         fragments.put("Media Style", MediaStyleFragment.newInstance());
         for (Map.Entry<String, Fragment> entry : fragments.entrySet()) {
