@@ -96,12 +96,26 @@ public class MaterialDesignFragment extends Fragment {
             builder.setColor(color);
         }
         if (img != null) {
+            Bitmap bitmap = null;
             try {
-                Bitmap bitmap = MediaStore.Images.Media.getBitmap(getActivity().getContentResolver(), img);
+                bitmap = MediaStore.Images.Media.getBitmap(getActivity().getContentResolver(), img);
                 builder.setLargeIcon(bitmap);
             } catch (IOException e) {
                 e.printStackTrace();
             }
+            if(bitmap != null) {
+                NotificationCompat.BigPictureStyle bigPictureStyle = new NotificationCompat.BigPictureStyle()
+                        .bigPicture(bitmap)
+                        .setBigContentTitle("Big Content Title")
+                        .setSummaryText("Summary Text");
+                builder.setStyle(bigPictureStyle);
+            }
+        } else {
+            NotificationCompat.BigTextStyle bigTextStyle = new NotificationCompat.BigTextStyle()
+                    .setBigContentTitle("Big Content Title")
+                    .setSummaryText("Summary Text")
+                    .bigText("Big Text\nBig Text\nBig Text\nBig Text");
+            builder.setStyle(bigTextStyle);
         }
         return builder.build();
     }
