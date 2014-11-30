@@ -34,6 +34,12 @@
             android:layout_height="wrap_content"
             android:text="with High priority and Vibrations"/>
 
+        <Button
+            android:id="@+id/button_hun_after_few_sec"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="After few sec."/>
+
     </LinearLayout>
 
 </ScrollView>

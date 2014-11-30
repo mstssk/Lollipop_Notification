@@ -23,6 +23,9 @@
                 <category android:name="android.intent.category.NOTIFICATION_PREFERENCES"/>
             </intent-filter>
         </activity>
+        <receiver
+            android:name=".NotifierReceiver"
+            android:exported="false"/>
     </application>
 
 </manifest>
