@@ -82,18 +82,19 @@ public class MaterialDesignFragment extends Fragment {
 
     @OnClick(R.id.button_show_notification)
     void showNotification() {
-        Integer color = ((Color) colorSpiner.getSelectedItem()).color;
+        Color color = ((Color) colorSpiner.getSelectedItem());
         Notification notification = createNotification(color, mImageUri);
         notificationManager.notify(mNotifyId++, notification);
     }
 
-    private Notification createNotification(Integer color, Uri img) {
+    private Notification createNotification(Color color, Uri img) {
         NotificationCompat.Builder builder = new NotificationCompat.Builder(getActivity())
                 .setContentTitle("Content Title")
                 .setContentText("Content text")
                 .setSmallIcon(R.drawable.ic_launcher);
-        if (color != null) {
-            builder.setColor(color);
+        if (color.color != null) {
+            builder.setColor(color.color);
+            builder.setContentText("Accent Color: " + color.text);
         }
         if (img != null) {
             Bitmap bitmap = null;
@@ -103,7 +104,7 @@ public class MaterialDesignFragment extends Fragment {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            if(bitmap != null) {
+            if (bitmap != null) {
                 NotificationCompat.BigPictureStyle bigPictureStyle = new NotificationCompat.BigPictureStyle()
                         .bigPicture(bitmap)
                         .setBigContentTitle("Big Content Title")
@@ -122,9 +123,27 @@ public class MaterialDesignFragment extends Fragment {
 
     private enum Color {
         DEFAULT("Default", null),
-        RED("Red", 0xF44336),
-        GREEN("Green", 0x4CAF50),
-        BLUE("Blue", 0x2196F3);
+        RED("Red", 0xf44336),
+        PINK("Pink", 0xe91e63),
+        PURPLE("Purple", 0x9c27b0),
+        DEEP_PURPLE("Deep Purple", 0x673ab7),
+        INDIGO("Indigo", 0x3f51b5),
+        BLUE("Blue", 0x2196f3),
+        LIGHT("Light Blue", 0x03a9f4),
+        CYAN("Cyan", 0x00bcd4),
+        TEAL("Teal", 0x009688),
+        GREEN("Green", 0x4caf50),
+        LIGHT_GREEN("Light Green", 0x8bc34a),
+        LIME("Lime", 0xcddc39),
+        YELLOW("Yellow", 0xffeb3b),
+        AMBER("Amber", 0xffc107),
+        ORANGE("Orange", 0xff9800),
+        DEEP_ORANGE("Deep Orange", 0xff5722),
+        BROWN("Brown", 0x795548),
+        GREY("Grey", 0x9e9e9e),
+        BLUE_GREY("Blue Grey", 0x607d8),
+        WHITE("White", 0xffffff),
+        BLACK("Black", 1);
 
         String text;
         Integer color;
