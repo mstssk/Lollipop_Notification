@@ -42,7 +42,7 @@ public class HeadsUpFragment extends Fragment {
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         PendingIntent pendingIntent = PendingIntent.getActivity(getActivity(), 0, intent, PendingIntent.FLAG_CANCEL_CURRENT);
         NotificationCompat.Builder builder = new NotificationCompat.Builder(getActivity())
-                .setContentTitle("FullScreenIntent")
+                .setContentTitle("Heads-up Notification")
                 .setContentText("これはFullScreenIntentによるHeads-up Notificationです。")
                 .setSmallIcon(R.drawable.ic_launcher)
                 .setCategory(NotificationCompat.CATEGORY_MESSAGE)
@@ -53,7 +53,7 @@ public class HeadsUpFragment extends Fragment {
     @OnClick(R.id.button_hun_sound)
     void showWithSound() {
         NotificationCompat.Builder builder = new NotificationCompat.Builder(getActivity())
-                .setContentTitle("通知音")
+                .setContentTitle("Heads-up Notification")
                 .setContentText("優先度 HIGH および 通音によるHeads-up Notificationです。")
                 .setSmallIcon(R.drawable.ic_launcher)
                 .setPriority(NotificationCompat.PRIORITY_HIGH)
@@ -64,7 +64,7 @@ public class HeadsUpFragment extends Fragment {
     @OnClick(R.id.button_hun_vibe)
     void showWithVibe() {
         NotificationCompat.Builder builder = new NotificationCompat.Builder(getActivity())
-                .setContentTitle("バイブレーション")
+                .setContentTitle("Heads-up Notification")
                 .setContentText("優先度 HIGH および バイブレーションによるHeads-up Notificationです。")
                 .setSmallIcon(R.drawable.ic_launcher)
                 .setPriority(NotificationCompat.PRIORITY_HIGH)
@@ -77,7 +77,7 @@ public class HeadsUpFragment extends Fragment {
         Notification notification;
         {
             NotificationCompat.Builder builder = new NotificationCompat.Builder(getActivity())
-                    .setContentTitle("通知音")
+                    .setContentTitle("Heads-up Notification")
                     .setContentText("優先度 HIGH および 通音によるHeads-up Notificationです。")
                     .setSmallIcon(R.drawable.ic_launcher)
                     .setCategory(NotificationCompat.CATEGORY_MESSAGE)
