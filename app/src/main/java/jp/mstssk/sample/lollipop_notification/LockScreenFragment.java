@@ -64,7 +64,7 @@ public class LockScreenFragment extends Fragment {
     void showPrivateWithPublicVersion() {
         Notification publicVer = new NotificationCompat.Builder(getActivity())
                 .setContentTitle("Alternative notification.")
-                .setContentText("PrivateのNotificationの代わりにロックスクリーンに表示されるNotificationです。")
+                .setContentText("代わりに表示されるNotificationです。")
                 .setSmallIcon(R.drawable.ic_launcher)
                 .setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
                 .build();
