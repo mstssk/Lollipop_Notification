@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
@@ -102,26 +103,54 @@
             android:layout_marginTop="@dimen/activity_vertical_margin"
             android:orientation="vertical">
 
-            <Button
-                android:id="@+id/button_choose_contact"
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Add Person"/>
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/button_choose_contact"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Add Person"/>
+
+                <ImageView
+                    android:id="@+id/image_preview"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+
+                <TextView
+                    android:id="@+id/contact_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="連絡先"/>
+
+            </LinearLayout>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Notificationに関連付ける連絡先を選択します。\n'通話'と'メッセージ'のカテゴリで使用します。"/>
 
-            <ImageView
-                android:id="@+id/image_preview"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/edit_text_person"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="tel: or mailto:"
+                android:inputType="textUri"
+                android:singleLine="true"/>
 
             <TextView
-                android:id="@+id/contact_name"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:text="連絡先はtel:やmailto:の形式でもOKです。"/>
 
         </LinearLayout>
 

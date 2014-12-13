@@ -12,9 +12,11 @@ import android.provider.ContactsContract;
 import android.provider.Settings;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.NotificationManagerCompat;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -34,6 +36,9 @@ public class PriorityModeFragment extends Fragment {
 
     @InjectView(R.id.contact_name)
     TextView contactName;
+
+    @InjectView(R.id.edit_text_person)
+    EditText editTextPerson;
 
     private Uri mContactUri = null;
 
@@ -101,6 +106,9 @@ public class PriorityModeFragment extends Fragment {
         if (mContactUri != null) {
             builder.addPerson(mContactUri.toString());
         }
+        if (!TextUtils.isEmpty(editTextPerson.getText())) {
+            builder.addPerson(editTextPerson.getText().toString());
+        }
         notificationManager.notify(2, builder.build());
     }
 
@@ -115,6 +123,9 @@ public class PriorityModeFragment extends Fragment {
                 .setVibrate(new long[]{50, 100, 50, 100, 50, 100});
         if (mContactUri != null) {
             builder.addPerson(mContactUri.toString());
+        }
+        if (!TextUtils.isEmpty(editTextPerson.getText())) {
+            builder.addPerson(editTextPerson.getText().toString());
         }
         notificationManager.notify(3, builder.build());
     }
