@@ -10,6 +10,6 @@ Android 5.0のNotificationについて執筆した際に検証のため書いた
 ## 書籍
 
 甘味アンドロイドパーク
-http://techbooster.github.io/c87/#park
+https://booth.pm/ja/items/75028
 
 第5章「Android 5.0でのNotification」を執筆しました。
